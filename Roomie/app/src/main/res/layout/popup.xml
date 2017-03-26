@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Product Name:"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/pdt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name" />
+
+    <TextView
+        android:id="@+id/roomie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Roomie:"
+        android:textSize="18sp" />
+    <com.example.prahathessrengasamy.roomie.spinAdapter
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/roommates"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/l_dd"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/dd" />
+
+    <TextView
+        android:id="@+id/quantity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Quantity"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/q"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number" />
+
+</LinearLayout>
