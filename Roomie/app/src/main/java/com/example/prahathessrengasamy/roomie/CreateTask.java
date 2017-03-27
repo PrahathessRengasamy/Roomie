@@ -35,7 +35,9 @@ public class CreateTask extends Activity {
     private Button submit,list;
     private RatingBar priority;
     private RatingBar effort;
+    private int count=0;
     private DatabaseReference mDatabase;
+    ArrayList<shoppinglist> items;
     String uuid;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,6 +82,9 @@ public class CreateTask extends Activity {
                Toast t= Toast.makeText(getApplicationContext(),"Task Added",Toast.LENGTH_LONG);
                 t.show();
                 mDatabase.child("tasks").child(uuid).setValue(p);
+
+                    mDatabase.child("shopping/" + uuid).child("/items").setValue(items);
+
                 CreateTask.super.onBackPressed();
 
 
@@ -99,12 +104,26 @@ public class CreateTask extends Activity {
                 Intent intent = new Intent(getApplicationContext(), shopping_List.class);
                 intent.putExtra("uuid",uuid);
                 intent.putExtra("task",p);
-                startActivity(intent);
+                startActivityForResult(intent, 1);
 
 
             }
         });
     }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == 1) {
+            if(resultCode == Activity.RESULT_OK){
+               Bundle result=data.getBundleExtra("result");
+                items=(ArrayList<shoppinglist> )result.getSerializable("res");
+            }
+            if (resultCode == Activity.RESULT_CANCELED) {
+                //Write your code if there's no result
+            }
+        }
+    }//onActivityResult
+
     private void genuuid(){
 
         uuid =UUID.randomUUID().toString().replaceAll("-", "").toUpperCase();

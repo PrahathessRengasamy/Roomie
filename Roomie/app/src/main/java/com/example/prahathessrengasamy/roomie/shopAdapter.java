@@ -20,7 +20,9 @@ public class shopAdapter extends BaseAdapter {
     private Context mContext;
     private LayoutInflater mInflater;
     private ArrayList<shoppinglist> mDataSource;
+    public shopAdapter() {
 
+    }
     public shopAdapter(Context context, ArrayList<shoppinglist> items) {
         mContext = context;
         mDataSource = items;
@@ -47,9 +49,11 @@ public class shopAdapter extends BaseAdapter {
         shoppinglist sl = (shoppinglist) getItem(i);
         TextView item=(TextView)rowView.findViewById(R.id.item);
         TextView person=(TextView)rowView.findViewById(R.id.person);
+        TextView qty=(TextView)rowView.findViewById(R.id.quantity);
       //  TextView price=(TextView)rowView.findViewById(R.id.price);
-        item.setText(sl.title);
-        person.setText(sl.Assignedto);
+        item.setText(sl.product);
+        person.setText(sl.who);
+        qty.setText(""+sl.qty);
        // price.setText(sl.Duedate);
         return rowView;
     }

@@ -9,21 +9,46 @@
         android:id="@+id/shoplist"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
         tools:layout_editor_absoluteX="-2dp"
-        tools:layout_editor_absoluteY="2dp" />
+        tools:layout_editor_absoluteY="2dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/addfab"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginBottom="19dp"
-        android:layout_marginEnd="21dp"
-        android:clickable="true"
-        app:fabSize="normal"
-        app:srcCompat="@color/colorAccent" />
+        android:elevation="17dp"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/addfab"
+            android:layout_alignTop="@+id/addfab"
+            android:clickable="true"
+            app:fabSize="mini"
+            app:srcCompat="@android:drawable/ic_menu_save"
+            android:layout_weight="1.17" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/addfab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="19dp"
+            android:layout_marginEnd="21dp"
+            android:clickable="true"
+            android:foreground="@android:drawable/ic_input_add"
+            app:fabSize="mini"
+            app:srcCompat="@color/colorAccent"
+            tools:mockup="@android:drawable/ic_input_add"
+            tools:mockup_crop="@android:drawable/ic_input_add"
+            tools:mockup_opacity="@android:drawable/ic_input_add" />
+    </LinearLayout>
 
 </RelativeLayout>
