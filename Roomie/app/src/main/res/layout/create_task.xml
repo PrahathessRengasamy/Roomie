@@ -123,11 +123,10 @@
         android:layout_alignParentStart="true" />
 
     <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="date"
-            android:ems="10"
-            android:id="@+id/dd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dd"
+        android:hint="Due Date"
         android:layout_alignBaseline="@+id/l_dd"
         android:layout_alignBottom="@+id/l_dd"
         android:layout_alignParentEnd="true"

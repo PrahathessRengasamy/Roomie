@@ -1,12 +1,17 @@
 package com.example.prahathessrengasamy.roomie;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
 import android.widget.ListView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -16,6 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  * Created by Llewellyn on 3/4/17.
@@ -27,6 +33,8 @@ public class TaskList extends Activity {
     private ListView lvItems;
     private FloatingActionButton fab;
     private DatabaseReference mDatabase;
+    private FragmentManager supportFragmentManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,4 +80,6 @@ public class TaskList extends Activity {
 
         });
     }
+
+
 }

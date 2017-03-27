@@ -21,7 +21,7 @@ import java.util.Locale;
 
 public class profileList extends Activity {
     private DatabaseReference mDatabase;
-    private List<Person> persons;
+    private ArrayList<Person> persons;
     private RecyclerView rv;
 
     @Override
