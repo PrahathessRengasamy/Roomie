@@ -1,5 +1,7 @@
 package com.example.prahathessrengasamy.roomie;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -7,23 +9,45 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-public class opening extends AppCompatActivity {
-
+public class opening extends AppCompatActivity implements View.OnClickListener {
+    private FloatingActionButton taskfab,homefab,setfab,usersfab;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_opening);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.homefab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        final Context c=this;
+        taskfab = (FloatingActionButton) findViewById(R.id.taskfab);
+        taskfab.setOnClickListener(this);
+        usersfab = (FloatingActionButton) findViewById(R.id.usersfab);
+        usersfab.setOnClickListener(this);
+        setfab =(FloatingActionButton) findViewById(R.id.setfab);
+        setfab.setOnClickListener(this);
+        homefab= (FloatingActionButton) findViewById(R.id.homefab);
+        homefab.setOnClickListener(this);
     }
 
+    @Override
+    public void onClick(View v) {
+        if(v.equals(taskfab))
+        {
+            Intent intent = new Intent(opening.this,TaskList.class);
+            startActivity(intent);
+        }
+        else if (v.equals((usersfab)))
+        {
+            Intent intent = new Intent(opening.this,profileList.class);
+            startActivity(intent);
+        }
+        else if(v.equals(setfab))
+        {
+            //Do for settings activity
+        }
+        else if(v.equals(homefab))
+        {
+            finish();
+            startActivity(getIntent());
+        }
+    }
 }
