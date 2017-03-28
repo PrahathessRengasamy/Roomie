@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -19,29 +19,31 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".TaskList"
-            android:label="@string/app_name">
+            android:name=".opening"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
+            android:name=".TaskList"
+            android:label="Tasks" />
+        <activity
+            android:name=".userprofile_edit"
+            android:label="userprofile"/>
+        <activity
             android:name=".CreateTask"
-            android:label="@string/app_name" />
+            android:label="Tasks" />
         <activity
             android:name=".profileList"
-            android:label="@string/app_name" />
+            android:label="userprofile" />
+        <activity android:name=".TaskView"
+            android:label="Tasks" />
         <activity
             android:name=".userprofile"
             android:label="@string/title_activity_userprofile"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".opening"
-            android:label="@string/title_activity_opening"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".shopping_List"></activity>
     </application>
 
 </manifest>

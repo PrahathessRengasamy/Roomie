@@ -34,8 +34,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/l_roomies"
             android:layout_alignTop="@+id/roomies"
-            android:layout_alignEnd="@+id/l_dd"
-            android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/l_des" />
 
 
     <TextView
@@ -123,18 +123,17 @@
         android:layout_alignParentStart="true" />
 
     <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="date"
-            android:ems="10"
-            android:id="@+id/dd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dd"
+        android:hint="Due Date"
         android:layout_alignBaseline="@+id/l_dd"
         android:layout_alignBottom="@+id/l_dd"
         android:layout_alignParentEnd="true"
         android:layout_alignStart="@+id/cat" />
 
     <Button
-        android:id="@+id/submit"
+        android:id="@+id/back"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -149,7 +148,7 @@
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/submit"
+        android:layout_alignEnd="@+id/back"
         android:layout_below="@+id/priority"
         android:layout_marginTop="28dp"
         android:text="Add a list"

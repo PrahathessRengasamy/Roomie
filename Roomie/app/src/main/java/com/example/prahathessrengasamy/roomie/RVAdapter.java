@@ -1,21 +1,18 @@
 package com.example.prahathessrengasamy.roomie;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.example.prahathessrengasamy.roomie.R;
-
-import java.util.List;
+import java.util.ArrayList;
 
 public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> {
-    static List<Person> persons;
+    static ArrayList<Person> persons;
     public static class PersonViewHolder extends RecyclerView.ViewHolder {
 
         CardView cv;
@@ -32,9 +29,9 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> 
                 @Override public void onClick(View v) {
                     int pos = getAdapterPosition();
                     Intent i = new Intent(itemView.getContext(), userprofile.class);
-                    i.putExtra("Name",persons.get(pos).Name);
-                    i.putExtra("Age",persons.get(pos).Age);
-                    i.putExtra("pref",persons.get(pos).pref);
+                    Bundle bundle= new Bundle();
+                    bundle.putSerializable("values",persons.get(pos));
+                    i.putExtra("val",bundle);
                     itemView.getContext().startActivity(i);
                     Toast.makeText(itemView.getContext(),  persons.get(pos).Name, Toast.LENGTH_SHORT).show();
 
@@ -46,7 +43,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> 
 
 
 
-    RVAdapter(List<Person> persons){
+    RVAdapter(ArrayList<Person> persons){
         this.persons = persons;
     }
 

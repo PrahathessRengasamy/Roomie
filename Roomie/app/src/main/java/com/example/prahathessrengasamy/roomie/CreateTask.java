@@ -1,53 +1,65 @@
 package com.example.prahathessrengasamy.roomie;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.SyncStateContract;
+import android.text.InputType;
+import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 import java.util.UUID;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Created by Llewellyn on 3/5/17.
  */
 
-public class CreateTask extends Activity {
+public class CreateTask extends Activity implements View.OnClickListener {
 
     private EditText title;
     private EditText des;
     private Spinner cat;
     private EditText dd;
+    private DatePickerDialog due_date;
+    private SimpleDateFormat sdf;
     private spinAdapter roomies;
     private Button submit,list;
     private RatingBar priority;
+<<<<<<< HEAD
     private RatingBar effort;
     private int count=0;
+=======
+>>>>>>> origin/master
     private DatabaseReference mDatabase;
     ArrayList<shoppinglist> items;
     String uuid;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_task);
+        sdf=new SimpleDateFormat("MM-dd-yyyy", Locale.US);
+        findViewsById();
+        setDateTimeField();
         roomies = (spinAdapter) findViewById(R.id.roomies);
         cat = (Spinner) findViewById(R.id.cat);
-        submit = (Button) findViewById(R.id.submit);
+        submit = (Button) findViewById(R.id.back);
         title = (EditText) findViewById(R.id.title);
         des = (EditText) findViewById(R.id.des);
-        dd = (EditText) findViewById(R.id.dd);
         list = (Button) findViewById(R.id.list);
         priority = (RatingBar) findViewById(R.id.priority);
         addItemsonCat();
@@ -110,6 +122,7 @@ public class CreateTask extends Activity {
             }
         });
     }
+<<<<<<< HEAD
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
@@ -123,6 +136,42 @@ public class CreateTask extends Activity {
             }
         }
     }//onActivityResult
+=======
+
+    private void setDateTimeField() {
+        dd.setOnClickListener(this);
+        Calendar newCalendar = Calendar.getInstance();
+        due_date= new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                Calendar newDate = Calendar.getInstance();
+                newDate.set(year, monthOfYear, dayOfMonth);
+                dd.setText(sdf.format(newDate.getTime()));
+            }
+
+        },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(view == dd) {
+            due_date.show();
+        }
+    }
+
+    private void findViewsById() {
+            dd = (EditText) findViewById(R.id.dd);
+            dd.setInputType(InputType.TYPE_NULL);
+            dd.requestFocus();
+    }
+>>>>>>> origin/master
 
     private void genuuid(){
 
