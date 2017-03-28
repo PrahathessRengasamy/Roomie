@@ -2,12 +2,8 @@ package com.example.prahathessrengasamy.roomie;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
-import android.app.Dialog;
-import android.app.DialogFragment;
-import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.SyncStateContract;
 import android.text.InputType;
 import android.view.Menu;
 import android.view.View;
@@ -16,7 +12,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -29,7 +24,6 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Created by Llewellyn on 3/5/17.
@@ -57,7 +51,7 @@ public class CreateTask extends Activity implements View.OnClickListener {
         setDateTimeField();
         roomies = (spinAdapter) findViewById(R.id.roomies);
         cat = (Spinner) findViewById(R.id.cat);
-        submit = (Button) findViewById(R.id.submit);
+        submit = (Button) findViewById(R.id.back);
         title = (EditText) findViewById(R.id.title);
         des = (EditText) findViewById(R.id.des);
         list = (Button) findViewById(R.id.list);

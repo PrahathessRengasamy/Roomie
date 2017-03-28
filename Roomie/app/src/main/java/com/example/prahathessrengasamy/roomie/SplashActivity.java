@@ -15,6 +15,8 @@ public class SplashActivity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
+        ImageView ban= (ImageView) findViewById(R.id.banner);
+        ban.setImageResource(R.drawable.banner);
         ImageView img = (ImageView) findViewById(R.id.ani);
         img.setBackgroundResource(R.drawable.animate);
         AnimationDrawable splashAnimation = (AnimationDrawable) img.getBackground();
@@ -25,7 +27,7 @@ public class SplashActivity extends Activity {
             public void run() {
                 try {
                     super.run();
-                    sleep(3000);  //Delay of 10 seconds
+                    sleep(3300);  //Delay of 3.3 seconds
                 } catch (Exception e) {
 
                 } finally {

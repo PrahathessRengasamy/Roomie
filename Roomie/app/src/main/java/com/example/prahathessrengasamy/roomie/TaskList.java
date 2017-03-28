@@ -5,11 +5,13 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.FragmentManager;
+import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.ListView;
@@ -33,7 +35,6 @@ public class TaskList extends Activity {
     private ListView lvItems;
     private FloatingActionButton fab;
     private DatabaseReference mDatabase;
-    private FragmentManager supportFragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,8 +61,26 @@ public class TaskList extends Activity {
         itemsAdapter = new TasksListAdapter(this,items);
         lvItems.setAdapter(itemsAdapter);
         addListenerOnButton();
+        lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent=new Intent(TaskList.this,TaskView.class);
+                intent.putExtra("item", items.get(position));
+                TaskList.this.startActivityForResult(intent,2);
+            }
+        });
+    }
 
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==2)
+        {
+            if(resultCode==Activity.RESULT_CANCELED)
+            {
+                //nothing but timepass here as of now
+            }
+        }
     }
 
     public void addListenerOnButton() {
