@@ -39,7 +39,8 @@ public class TaskView extends Activity {
         category.setText(item.Category);
         due_date.setText(item.Duedate);
         workforce.setText(item.Workforce);
-        priority.setNumStars((int)item.Priority);
+        priority.setNumStars(5);
+        priority.setRating(item.Priority);
         credits.setText(""+(item.Credits));
         creator.setText(item.Creator);
         back.setOnClickListener(new View.OnClickListener() {
