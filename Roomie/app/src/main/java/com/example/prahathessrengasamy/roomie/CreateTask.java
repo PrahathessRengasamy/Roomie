@@ -1,9 +1,16 @@
 package com.example.prahathessrengasamy.roomie;
-
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.Notification;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.SystemClock;
+import android.support.annotation.RequiresApi;
+import android.support.v7.app.NotificationCompat;
 import android.text.InputType;
 import android.view.Menu;
 import android.view.View;
@@ -18,9 +25,11 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
@@ -86,6 +95,7 @@ public class CreateTask extends Activity implements View.OnClickListener {
             }
         });
         submit.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             public void onClick(View v) {
                 // Perform action on click
                 mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -93,9 +103,17 @@ public class CreateTask extends Activity implements View.OnClickListener {
                Toast t= Toast.makeText(getApplicationContext(),"Task Added",Toast.LENGTH_LONG);
                 t.show();
                 mDatabase.child("tasks").child(uuid).setValue(p);
+               /* int   day  = due_date.getDatePicker().getDayOfMonth();
+                int   month= due_date.getDatePicker().getMonth();
+                int   year = due_date.getDatePicker().getYear();
 
-                    mDatabase.child("shopping/" + uuid).child("/items").setValue(items);
-
+                android.icu.util.Calendar date = android.icu.util.Calendar.getInstance();
+                date.set(android.icu.util.Calendar.DAY_OF_MONTH,due_date.getDatePicker().getDayOfMonth());
+                date.set(Calendar.HOUR_OF_DAY, 12);
+                date.set(Calendar.MINUTE, 00);
+                date.set(Calendar.SECOND, 00);*/
+                mDatabase.child("shopping/" + uuid).child("/items").setValue(items);
+                remind("Task Due Today:"+title.getText().toString(),des.getText().toString());
                 CreateTask.super.onBackPressed();
 
 
@@ -121,7 +139,20 @@ public class CreateTask extends Activity implements View.OnClickListener {
             }
         });
     }
+    private  void remind ( String title, String message)
+    {
 
+        Intent alarmIntent = new Intent(getApplicationContext(), AlarmReceiver.class);
+        alarmIntent.putExtra ("message", message);
+        alarmIntent.putExtra ("title", title);
+
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, alarmIntent,PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+
+        //TODO: For demo set after 5 seconds.
+        alarmManager.set(AlarmManager.ELAPSED_REALTIME, 3000, pendingIntent);
+
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
