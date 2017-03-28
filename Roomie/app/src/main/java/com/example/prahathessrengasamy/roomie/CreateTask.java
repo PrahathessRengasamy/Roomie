@@ -40,11 +40,10 @@ public class CreateTask extends Activity implements View.OnClickListener {
     private spinAdapter roomies;
     private Button submit,list;
     private RatingBar priority;
-<<<<<<< HEAD
+
     private RatingBar effort;
     private int count=0;
-=======
->>>>>>> origin/master
+
     private DatabaseReference mDatabase;
     ArrayList<shoppinglist> items;
     String uuid;
@@ -122,7 +121,7 @@ public class CreateTask extends Activity implements View.OnClickListener {
             }
         });
     }
-<<<<<<< HEAD
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
@@ -136,7 +135,7 @@ public class CreateTask extends Activity implements View.OnClickListener {
             }
         }
     }//onActivityResult
-=======
+
 
     private void setDateTimeField() {
         dd.setOnClickListener(this);
@@ -171,7 +170,7 @@ public class CreateTask extends Activity implements View.OnClickListener {
             dd.setInputType(InputType.TYPE_NULL);
             dd.requestFocus();
     }
->>>>>>> origin/master
+
 
     private void genuuid(){
 

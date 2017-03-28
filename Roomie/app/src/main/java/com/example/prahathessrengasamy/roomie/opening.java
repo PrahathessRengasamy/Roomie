@@ -43,11 +43,15 @@ public class opening extends AppCompatActivity implements View.OnClickListener {
         else if(v.equals(setfab))
         {
             //Do for settings activity
+            Intent intent = new Intent(opening.this,Scan.class);
+            startActivity(intent);
+
         }
         else if(v.equals(homefab))
         {
-            finish();
-            startActivity(getIntent());
+            Intent intent = new Intent(opening.this,Scan.class);
+            startActivity(intent);
+
         }
     }
 }
