@@ -23,6 +23,11 @@
 
     <include layout="@layout/content_opening"
         android:id="@+id/include4" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:src="@drawable/roomielogo" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -80,8 +85,6 @@
 
 
     </LinearLayout>
-
-
 
 
 </android.support.design.widget.CoordinatorLayout>
