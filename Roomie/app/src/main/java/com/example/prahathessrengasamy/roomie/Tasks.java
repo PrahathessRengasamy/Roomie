@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 public class Tasks  implements Serializable{
 
-String title,Creator,Desc,Category,Duedate,Workforce,Assignedto,Repeats,Status;
+    public String title,Creator,Desc,Category,Duedate,Workforce,Assignedto,Repeats,Status;
     float Priority,Credits;
     Tasks(){}
     Tasks(String title,String Desc,String Category,String Duedate,String Workforce,float Priority) {
