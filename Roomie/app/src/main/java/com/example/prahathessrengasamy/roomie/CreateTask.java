@@ -1,10 +1,15 @@
 package com.example.prahathessrengasamy.roomie;
 
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.text.InputType;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,10 +22,14 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
 
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
@@ -65,7 +74,7 @@ public class CreateTask extends Activity implements View.OnClickListener {
         addItemsonRoomies();
        // String uuid =UUID.randomUUID().toString().replaceAll("-", "").toUpperCase();
         genuuid();
-
+final Context c=this;
 
         cat.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -96,11 +105,49 @@ public class CreateTask extends Activity implements View.OnClickListener {
 
                     mDatabase.child("shopping/" + uuid).child("/items").setValue(items);
 
-                CreateTask.super.onBackPressed();
+                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                Date startDate=new Date();
+                try {
+                    startDate = sdf.parse(dd.getText().toString());
+                    String newDateString = sdf.format(startDate);
+                    System.out.println(newDateString);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                Date date = new Date();
+                long aa=Math.abs(startDate.getTime() - date.getTime());
 
+                //scheduleNotification(FirebaseInstanceId.getInstance().getToken(), aa);
+
+                Log.d("dateee", aa+"   hhhaaa"+startDate+"");
+
+
+                Log.d("in scheduleNotification", "");
+                Intent notificationIntent = new Intent(c, datatrial.class);
+                //notificationIntent.putExtra(datatrial.NOTIFICATION_ID, 1);
+                notificationIntent.putExtra("nott",FirebaseInstanceId.getInstance().getToken());
+                notificationIntent.putExtra("taskid",uuid);
+                PendingIntent pendingIntent = PendingIntent.getBroadcast(c, (int) System.currentTimeMillis(), notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+                aa=60000;
+                long futureInMillis = SystemClock.elapsedRealtime() + aa;
+                AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+                alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, futureInMillis, pendingIntent);
+                System.out.println("helllo");
+
+
+                CreateTask.super.onBackPressed();
 
             }
         });
+//
+//        public static long daysBetween(Calendar startDate, Calendar endDate) {
+//            long end = endDate.getTimeInMillis();
+//            long start = startDate.getTimeInMillis();
+//            return TimeUnit.MILLISECONDS.toDays(Math.abs(end - start));
+//        }
+
+
+
         list.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
@@ -198,5 +245,23 @@ public class CreateTask extends Activity implements View.OnClickListener {
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         cat.setAdapter(dataAdapter);
     }
+
+
+    private void scheduleNotification(String notification, long delay) {
+        Log.d("in scheduleNotification", "");
+        Intent notificationIntent = new Intent(this, datatrial.class);
+        //notificationIntent.putExtra(datatrial.NOTIFICATION_ID, 1);
+        notificationIntent.putExtra("nott",notification);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 1, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+delay=600;
+        long futureInMillis = SystemClock.elapsedRealtime() + delay;
+        AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, futureInMillis, pendingIntent);
+    }
+
+
+
+
+
 
 }
