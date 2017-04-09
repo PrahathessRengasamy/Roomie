@@ -21,13 +21,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        if (getIntent().getExtras() != null) {
-            for (String key : getIntent().getExtras().keySet()) {
-                Object value = getIntent().getExtras().get(key);
-                Log.d(TAG, "Key: " + key + " Value: " + value);
-            }
-        }
+        Log.d(TAG, "in mainnnnnnnn main act");
+//        if (getIntent().getExtras() != null) {
+//            for (String key : getIntent().getExtras().keySet()) {
+//                Object value = getIntent().getExtras().get(key);
+//                Intent intent = new Intent(this, SplashActivity.class);
+//
+//
+//                Log.d(TAG, "Key: " + key + " Value: " + value);
+//            }
+//        }
+       // else{initialize();}
 
 
 
