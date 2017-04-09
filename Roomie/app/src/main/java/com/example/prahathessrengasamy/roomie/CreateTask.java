@@ -113,7 +113,7 @@ public class CreateTask extends Activity implements View.OnClickListener {
                 date.set(Calendar.MINUTE, 00);
                 date.set(Calendar.SECOND, 00);*/
                 mDatabase.child("shopping/" + uuid).child("/items").setValue(items);
-                remind("Task Due Today:"+title.getText().toString(),des.getText().toString());
+               // remind("Task Due Today:"+title.getText().toString(),des.getText().toString());
                 CreateTask.super.onBackPressed();
 
 

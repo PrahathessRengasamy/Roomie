@@ -47,6 +47,10 @@
             android:name=".userprofile"
             android:label="@string/title_activity_userprofile"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".shopping_List"
+            android:label="Shopping List"
+             />
         <activity android:name=".Scan"></activity>
     </application>
 
