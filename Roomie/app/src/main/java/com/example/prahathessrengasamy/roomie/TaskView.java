@@ -33,7 +33,9 @@ public class TaskView extends Activity {
         credits=(TextView) findViewById(R.id.credits);
         creator=(TextView) findViewById(R.id.creator);
         back=(Button) findViewById(R.id.back);
+
         Tasks item= (Tasks) getIntent().getSerializableExtra("item");
+
         title.setText(item.title);
         des.setText(item.Desc);
         category.setText(item.Category);
@@ -43,6 +45,7 @@ public class TaskView extends Activity {
         priority.setRating(item.Priority);
         credits.setText(""+(item.Credits));
         creator.setText(item.Creator);
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

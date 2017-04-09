@@ -37,6 +37,7 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".TaskList"
             android:label="Tasks" />
@@ -56,6 +57,10 @@
             android:name=".userprofile"
             android:label="@string/title_activity_userprofile"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".shopping_List"
+            android:label="Shopping List"
+             />
         <activity android:name=".Scan"></activity>
         <service android:name=".MyFirebaseMessagingService">
             <intent-filter>
