@@ -7,13 +7,20 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import java.util.ArrayList;
 
 public class userprofile extends AppCompatActivity {
 
     private TextView Name, Age, f_pref,l_pref,s_pref,liq_pref,m_pref;
+    private AdView mAdView;
+    private Button btnFullscreenAd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +43,10 @@ public class userprofile extends AppCompatActivity {
         s_pref.setText(p.s_pref);
         liq_pref.setText(p.liq_pref);
         m_pref.setText(p.m_pref);
+        mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .build();
+        mAdView.loadAd(adRequest);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.homefab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +60,7 @@ public class userprofile extends AppCompatActivity {
                 myIntent.putExtra("liq_pref",liq_pref.getText().toString());
                 myIntent.putExtra("m_pref",m_pref.getText().toString());
                 userprofile.this.startActivityForResult(myIntent,2);
+
             }
         });
 
