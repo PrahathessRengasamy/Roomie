@@ -10,8 +10,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
-
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,6 +29,8 @@ public class opening extends AppCompatActivity implements View.OnClickListener {
     ArrayList<Tasks> task;
     Tasks mytask;
     RecyclerView rv;
+    private AdView mAdView;
+    private Button btnFullscreenAd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +44,10 @@ public class opening extends AppCompatActivity implements View.OnClickListener {
         rv.setLayoutManager(llm);
         rv.setHasFixedSize(true);
         initializeData();
-
+        mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .build();
+        mAdView.loadAd(adRequest);
         taskfab = (FloatingActionButton) findViewById(R.id.taskfab);
         taskfab.setOnClickListener(this);
         usersfab = (FloatingActionButton) findViewById(R.id.usersfab);

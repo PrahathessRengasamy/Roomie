@@ -2,21 +2,19 @@ package com.example.prahathessrengasamy.roomie;
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.DatePickerDialog;
-<<<<<<< HEAD
+
 import android.app.Notification;
-=======
->>>>>>> push
+
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
-<<<<<<< HEAD
+
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.NotificationCompat;
-=======
->>>>>>> push
+
 import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
@@ -33,10 +31,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.iid.FirebaseInstanceId;
 
-<<<<<<< HEAD
-=======
+
 import java.text.DateFormat;
->>>>>>> push
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -115,7 +112,7 @@ final Context c=this;
                Toast t= Toast.makeText(getApplicationContext(),"Task Added",Toast.LENGTH_LONG);
                 t.show();
                 mDatabase.child("tasks").child(uuid).setValue(p);
-<<<<<<< HEAD
+
                /* int   day  = due_date.getDatePicker().getDayOfMonth();
                 int   month= due_date.getDatePicker().getMonth();
                 int   year = due_date.getDatePicker().getYear();
@@ -128,7 +125,7 @@ final Context c=this;
                 mDatabase.child("shopping/" + uuid).child("/items").setValue(items);
                // remind("Task Due Today:"+title.getText().toString(),des.getText().toString());
                 CreateTask.super.onBackPressed();
-=======
+
 
                     mDatabase.child("shopping/" + uuid).child("/items").setValue(items);
 
@@ -147,7 +144,7 @@ final Context c=this;
                 //scheduleNotification(FirebaseInstanceId.getInstance().getToken(), aa);
 
                 Log.d("dateee", aa+"   hhhaaa"+startDate+"");
->>>>>>> push
+
 
 
                 Log.d("in scheduleNotification", "");
