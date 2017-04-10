@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 import java.util.jar.Attributes;
 
@@ -19,13 +22,16 @@ import java.util.jar.Attributes;
 public class TaskView extends Activity {
     private TextView title,des,category,due_date,workforce,credits,creator;
     private RatingBar priority;
-    private Button back;
+    private Button back,del;
+    private DatabaseReference mDatabase;
+    String uuid;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.task_item);
         title=(TextView) findViewById(R.id.title);
         des=(TextView) findViewById(R.id.des);
+        del=(Button) findViewById(R.id.del);
         category=(TextView) findViewById(R.id.cat);
         due_date=(TextView) findViewById(R.id.dd);
         workforce=(TextView) findViewById(R.id.roomies);
@@ -35,7 +41,7 @@ public class TaskView extends Activity {
         back=(Button) findViewById(R.id.back);
 
         Tasks item= (Tasks) getIntent().getSerializableExtra("item");
-
+        uuid=item.tid;
         title.setText(item.title);
         des.setText(item.Desc);
         category.setText(item.Category);
@@ -50,6 +56,16 @@ public class TaskView extends Activity {
             @Override
             public void onClick(View v) {
                 setResult(Activity.RESULT_CANCELED,new Intent(TaskView.this,TaskList.class));
+                finish();
+            }
+        });
+
+        del.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDatabase = FirebaseDatabase.getInstance().getReference();
+                mDatabase.child("tasks").child(uuid).removeValue();
+                setResult(Activity.RESULT_OK,new Intent(TaskView.this,TaskList.class));
                 finish();
             }
         });

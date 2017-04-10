@@ -62,8 +62,12 @@ public class TasksListAdapter extends BaseAdapter {
             case "Fun":
                 icon.setImageResource(R.drawable.fun);
                 break;
-
-        }
+            case "Walking the dog":
+                icon.setImageResource(R.drawable.dog);
+                break;
+            case "Pay Bills":
+                icon.setImageResource(R.drawable.bills);
+    }
         tname.setText(task.title);
         users.setText(task.Assignedto);
         due.setText(task.Duedate);

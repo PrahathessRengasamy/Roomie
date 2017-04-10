@@ -108,7 +108,7 @@ final Context c=this;
             public void onClick(View v) {
                 // Perform action on click
                 mDatabase = FirebaseDatabase.getInstance().getReference();
-                Tasks p = new Tasks(title.getText().toString(),des.getText().toString(),cat.getSelectedItem().toString(),dd.getText().toString(),roomies.getSelectedItem().toString(),priority.getRating());
+                Tasks p = new Tasks(title.getText().toString(),des.getText().toString(),cat.getSelectedItem().toString(),dd.getText().toString(),roomies.getSelectedItem().toString(),priority.getRating(),uuid);
                Toast t= Toast.makeText(getApplicationContext(),"Task Added",Toast.LENGTH_LONG);
                 t.show();
                 mDatabase.child("tasks").child(uuid).setValue(p);
@@ -182,7 +182,7 @@ final Context c=this;
                 t.show();
                 mDatabase.child("tasks").child(UUID.randomUUID().toString().replaceAll("-", "").toUpperCase()).setValue(p);
                 CreateTask.super.onBackPressed();*/
-                Tasks p = new Tasks(title.getText().toString(),des.getText().toString(),cat.getSelectedItem().toString(),dd.getText().toString(),roomies.getSelectedItem().toString(),priority.getRating());
+                Tasks p = new Tasks(title.getText().toString(),des.getText().toString(),cat.getSelectedItem().toString(),dd.getText().toString(),roomies.getSelectedItem().toString(),priority.getRating(),uuid);
 
                 Intent intent = new Intent(getApplicationContext(), shopping_List.class);
                 intent.putExtra("uuid",uuid);
@@ -278,6 +278,7 @@ final Context c=this;
         list.add("Fun");
         list.add("Shopping");
         list.add("Walking the dog");
+        list.add("Pay Bills");
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, list);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

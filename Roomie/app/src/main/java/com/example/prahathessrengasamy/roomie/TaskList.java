@@ -39,6 +39,14 @@ public class TaskList extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.task_list);
+        lvItems = (ListView) findViewById(R.id.list);
+        fab = (FloatingActionButton) findViewById(R.id.homefab);
+        listinit();
+        addListenerOnButton();
+    }
+
+    private void listinit() {
         items=new ArrayList<Tasks>();
         mDatabase = FirebaseDatabase.getInstance().getReferenceFromUrl("https://roomie-27bba.firebaseio.com/");
         mDatabase.child("tasks").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -55,12 +63,8 @@ public class TaskList extends Activity {
 
             }
         });
-        setContentView(R.layout.task_list);
-        lvItems = (ListView) findViewById(R.id.list);
-        fab = (FloatingActionButton) findViewById(R.id.homefab);
         itemsAdapter = new TasksListAdapter(this,items);
         lvItems.setAdapter(itemsAdapter);
-        addListenerOnButton();
         lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -79,6 +83,15 @@ public class TaskList extends Activity {
             if(resultCode==Activity.RESULT_CANCELED)
             {
                 //nothing but timepass here as of now
+                //itemsAdapter.notifyDataSetChanged();
+                //lvItems.invalidate();
+                recreate();
+            }
+            else if(resultCode==Activity.RESULT_OK)
+            {
+                //this is return from deleting task
+                //itemsAdapter.notifyDataSetChanged();
+                recreate();
             }
         }
     }
