@@ -11,7 +11,7 @@ public class Tasks  implements Serializable{
     public String title,Creator,Desc,Category,Duedate,Workforce,Assignedto,Repeats,Status,tid;
     float Priority,Credits;
     Tasks(){}
-    Tasks(String title,String Desc,String Category,String Duedate,String Workforce,float Priority, String tid) {
+    Tasks(String title,String Desc,String Category,String Duedate,String Workforce,float Priority, String tid,String status) {
         this.title = title;
         this.Creator = "Prahathess";
         this.tid=tid;
@@ -21,7 +21,7 @@ public class Tasks  implements Serializable{
         this.Workforce=Workforce;
         this.Priority=Priority;
         this.Repeats="No";
-        this.Status="open";
+        this.Status=status;
         this.Credits=Priority*4;
         this.Assignedto=Workforce;
     }
