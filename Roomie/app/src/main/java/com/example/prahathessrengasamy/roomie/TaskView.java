@@ -47,6 +47,7 @@ public class TaskView extends Activity {
         creator=(TextView) findViewById(R.id.creator);
         back=(Button) findViewById(R.id.back);
         status=(Switch)findViewById(R.id.status);
+        edit=(Button)findViewById(R.id.edit);
         Tasks item= (Tasks) getIntent().getSerializableExtra("item");
         uuid=item.tid;
 
@@ -80,7 +81,7 @@ public class TaskView extends Activity {
             }
         });
 
-/*        edit.setOnClickListener(new View.OnClickListener() {
+      edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent myintent = new Intent(TaskView.this, TaskEdit.class);
@@ -93,6 +94,6 @@ public class TaskView extends Activity {
                 myintent.putExtra("priority", priority.getNumStars());
                 TaskView.this.startActivity(myintent);
             }
-        });*/
+        });
     }
 }
