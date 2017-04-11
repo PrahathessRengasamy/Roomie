@@ -194,12 +194,32 @@
             android:id="@+id/adView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:layout_toStartOf="@+id/imageView"
             android:visibility="visible"
             ads:adSize="BANNER"
-            ads:adUnitId="@string/banner_home_footer"
-            android:layout_alignParentBottom="true"
-            android:layout_toStartOf="@+id/imageView"
-            android:layout_marginBottom="20dp"></com.google.android.gms.ads.AdView>
+            ads:adUnitId="@string/banner_home_footer"></com.google.android.gms.ads.AdView>
+
+        <TextView
+            android:id="@+id/score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textView11"
+            android:layout_below="@+id/textView7"
+            android:layout_marginTop="11dp"
+            android:text="Points:"
+            android:textStyle="bold"
+            android:typeface="normal"
+            tools:text="Points:" />
+
+        <TextView
+            android:id="@+id/points"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/a_value"
+            android:layout_alignTop="@+id/score"
+            android:text="TextView" />
 
 
     </RelativeLayout>

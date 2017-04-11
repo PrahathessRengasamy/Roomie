@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class userprofile extends AppCompatActivity {
 
-    private TextView Name, Age, f_pref,l_pref,s_pref,liq_pref,m_pref;
+    private TextView Name, Age, f_pref,l_pref,s_pref,liq_pref,m_pref,score;
     private AdView mAdView;
     private Button btnFullscreenAd;
 
@@ -34,6 +34,7 @@ public class userprofile extends AppCompatActivity {
         s_pref = (TextView) findViewById(R.id.s_value);
         liq_pref = (TextView) findViewById(R.id.liq_value);
         m_pref = (TextView) findViewById(R.id.m_value);
+        score = (TextView) findViewById(R.id.points);
         Bundle extras=getIntent().getBundleExtra("val");
         Person p = (Person) extras.getSerializable("values");
         Name.setText(p.Name);
@@ -43,6 +44,7 @@ public class userprofile extends AppCompatActivity {
         s_pref.setText(p.s_pref);
         liq_pref.setText(p.liq_pref);
         m_pref.setText(p.m_pref);
+        score.setText(p.score);
         mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder()
                 .build();
