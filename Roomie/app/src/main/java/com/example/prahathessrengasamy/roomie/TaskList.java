@@ -53,7 +53,7 @@ public class TaskList extends Activity {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 for (DataSnapshot child : snapshot.getChildren()) {
-                    items.add(child.getValue(Tasks.class));
+                    TaskList.this.items.add(child.getValue(Tasks.class));
 
 
                 }

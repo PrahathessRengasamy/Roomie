@@ -69,7 +69,7 @@ public class opening extends AppCompatActivity implements View.OnClickListener {
 
                     mytask=child.getValue(Tasks.class);
                     if(mytask.Assignedto.contains((CharSequence)"Vishal")) {
-                        task.add(child.getValue(Tasks.class));
+                        opening.this.task.add(child.getValue(Tasks.class));
                         initializeAdapter();
                     }
                 }
