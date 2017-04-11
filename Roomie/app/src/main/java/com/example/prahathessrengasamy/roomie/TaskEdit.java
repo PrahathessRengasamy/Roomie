@@ -101,7 +101,7 @@ public class TaskEdit extends Activity implements View.OnClickListener {
                 t.show();
                 mDatabase.child("tasks").child(UUID.randomUUID().toString().replaceAll("-", "").toUpperCase()).setValue(p);
                 CreateTask.super.onBackPressed();*/
-                Tasks p = new Tasks(title.getText().toString(),des.getText().toString(),cat.getSelectedItem().toString(),dd.getText().toString(),roomies.getSelectedItem().toString(),priority.getRating(),uuid);
+                Tasks p = new Tasks(title.getText().toString(),des.getText().toString(),cat.getSelectedItem().toString(),dd.getText().toString(),roomies.getSelectedItem().toString(),priority.getRating(),uuid,"open");
 
                 Intent intent = new Intent(getApplicationContext(), shopping_List.class);
                 intent.putExtra("uuid",uuid);
@@ -124,7 +124,7 @@ public class TaskEdit extends Activity implements View.OnClickListener {
             @RequiresApi(api = Build.VERSION_CODES.N)
             public void onClick(View v) {
                 mDatabase = FirebaseDatabase.getInstance().getReference();
-                Tasks p = new Tasks(title.getText().toString(),des.getText().toString(),cat.getSelectedItem().toString(),dd.getText().toString(),roomies.getSelectedItem().toString(),priority.getRating(),uuid);
+                Tasks p = new Tasks(title.getText().toString(),des.getText().toString(),cat.getSelectedItem().toString(),dd.getText().toString(),roomies.getSelectedItem().toString(),priority.getRating(),uuid,"open");
                 Toast t= Toast.makeText(getApplicationContext(),"Task Edited",Toast.LENGTH_LONG);
                 t.show();
                 mDatabase.child("tasks").child(uuid).setValue(p);

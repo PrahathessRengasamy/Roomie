@@ -60,17 +60,14 @@ public class CreateTask extends Activity implements View.OnClickListener {
     private Button submit,list;
     private RatingBar priority;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     //private RatingBar effort;
     //private int count=0;
-=======
-=======
->>>>>>> Gamification
+
 
     private RatingBar effort;
     private int count=0;
->>>>>>> Status
+
 
     private DatabaseReference mDatabase;
     ArrayList<shoppinglist> items;

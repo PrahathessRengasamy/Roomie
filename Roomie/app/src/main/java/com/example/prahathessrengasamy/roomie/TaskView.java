@@ -35,22 +35,7 @@ public class TaskView extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.task_item);
-<<<<<<< HEAD
-        title = (TextView) findViewById(R.id.title);
-        des = (TextView) findViewById(R.id.des);
-        edit = (Button) findViewById(R.id.edit);
-        del = (Button) findViewById(R.id.del);
-        category = (TextView) findViewById(R.id.cat);
-        due_date = (TextView) findViewById(R.id.dd);
-        workforce = (TextView) findViewById(R.id.roomies);
-        priority = (RatingBar) findViewById(R.id.priority);
-        credits = (TextView) findViewById(R.id.credits);
-        creator = (TextView) findViewById(R.id.creator);
-        back = (Button) findViewById(R.id.back);
 
-        Tasks item = (Tasks) getIntent().getSerializableExtra("item");
-        uuid = item.tid;
-=======
         title=(TextView) findViewById(R.id.title);
         des=(TextView) findViewById(R.id.des);
         del=(Button) findViewById(R.id.del);
@@ -64,7 +49,7 @@ public class TaskView extends Activity {
         status=(Switch)findViewById(R.id.status);
         Tasks item= (Tasks) getIntent().getSerializableExtra("item");
         uuid=item.tid;
->>>>>>> Status
+
         title.setText(item.title);
         des.setText(item.Desc);
         category.setText(item.Category);
@@ -95,7 +80,7 @@ public class TaskView extends Activity {
             }
         });
 
-        edit.setOnClickListener(new View.OnClickListener() {
+/*        edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent myintent = new Intent(TaskView.this, TaskEdit.class);
@@ -108,6 +93,6 @@ public class TaskView extends Activity {
                 myintent.putExtra("priority", priority.getNumStars());
                 TaskView.this.startActivity(myintent);
             }
-        });
+        });*/
     }
 }
