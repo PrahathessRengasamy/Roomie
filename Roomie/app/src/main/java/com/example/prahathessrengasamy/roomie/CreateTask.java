@@ -61,9 +61,12 @@ public class CreateTask extends Activity implements View.OnClickListener {
     private RatingBar priority;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     //private RatingBar effort;
     //private int count=0;
 =======
+=======
+>>>>>>> Gamification
 
     private RatingBar effort;
     private int count=0;

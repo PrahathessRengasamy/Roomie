@@ -147,6 +147,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 <<<<<<< HEAD
+<<<<<<< HEAD
         android:layout_marginBottom="47dp"
         android:background="@drawable/roundshapebtn"
         android:backgroundTint="@color/colorAccent"
@@ -157,6 +158,9 @@
         android:layout_marginStart="10dp" />
 =======
         android:text="Back to list"
+=======
+        android:text="Back to list"
+>>>>>>> Gamification
         android:layout_alignBaseline="@+id/del"
         android:layout_alignBottom="@+id/del"
         android:layout_alignEnd="@+id/priority" />
@@ -166,6 +170,7 @@
         android:id="@+id/del"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
 <<<<<<< HEAD
         android:background="@drawable/roundshapebtn"
         android:backgroundTint="@color/colorAccent"
@@ -189,6 +194,8 @@
         android:layout_alignBottom="@+id/del"
         android:layout_toStartOf="@+id/creator" />
 =======
+=======
+>>>>>>> Gamification
         android:text="Delete"
         android:layout_alignParentBottom="true"
         android:layout_toEndOf="@+id/textView18"
@@ -210,5 +217,8 @@
         android:layout_alignStart="@+id/creator"
         android:layout_alignTop="@+id/textView14"
         tools:checked="true" />
+<<<<<<< HEAD
 >>>>>>> Status
+=======
+>>>>>>> Gamification
 </RelativeLayout>
