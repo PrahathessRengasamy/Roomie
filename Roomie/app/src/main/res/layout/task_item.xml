@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -145,6 +146,7 @@
         android:id="@+id/back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_marginBottom="47dp"
         android:background="@drawable/roundshapebtn"
         android:backgroundTint="@color/colorAccent"
@@ -153,11 +155,18 @@
         android:layout_alignParentBottom="true"
         android:layout_toEndOf="@+id/del"
         android:layout_marginStart="10dp" />
+=======
+        android:text="Back to list"
+        android:layout_alignBaseline="@+id/del"
+        android:layout_alignBottom="@+id/del"
+        android:layout_alignEnd="@+id/priority" />
+>>>>>>> Status
 
     <Button
         android:id="@+id/del"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:background="@drawable/roundshapebtn"
         android:backgroundTint="@color/colorAccent"
         android:text="Delete"
@@ -179,4 +188,27 @@
         android:layout_alignBaseline="@+id/del"
         android:layout_alignBottom="@+id/del"
         android:layout_toStartOf="@+id/creator" />
+=======
+        android:text="Delete"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/textView18"
+        android:layout_marginBottom="24dp" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView25"
+        android:layout_below="@+id/textView25"
+        android:layout_marginTop="17dp"
+        android:text="Status" />
+
+    <Switch
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/creator"
+        android:layout_alignTop="@+id/textView14"
+        tools:checked="true" />
+>>>>>>> Status
 </RelativeLayout>

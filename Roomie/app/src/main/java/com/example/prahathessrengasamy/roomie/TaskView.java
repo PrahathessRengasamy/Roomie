@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RatingBar;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,11 +29,13 @@ public class TaskView extends Activity {
     private RatingBar priority;
     private Button back,del,edit;
     private DatabaseReference mDatabase;
+    private Switch status;
     String uuid;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.task_item);
+<<<<<<< HEAD
         title = (TextView) findViewById(R.id.title);
         des = (TextView) findViewById(R.id.des);
         edit = (Button) findViewById(R.id.edit);
@@ -47,6 +50,21 @@ public class TaskView extends Activity {
 
         Tasks item = (Tasks) getIntent().getSerializableExtra("item");
         uuid = item.tid;
+=======
+        title=(TextView) findViewById(R.id.title);
+        des=(TextView) findViewById(R.id.des);
+        del=(Button) findViewById(R.id.del);
+        category=(TextView) findViewById(R.id.cat);
+        due_date=(TextView) findViewById(R.id.dd);
+        workforce=(TextView) findViewById(R.id.roomies);
+        priority=(RatingBar) findViewById(R.id.priority);
+        credits=(TextView) findViewById(R.id.credits);
+        creator=(TextView) findViewById(R.id.creator);
+        back=(Button) findViewById(R.id.back);
+        status=(Switch)findViewById(R.id.status);
+        Tasks item= (Tasks) getIntent().getSerializableExtra("item");
+        uuid=item.tid;
+>>>>>>> Status
         title.setText(item.title);
         des.setText(item.Desc);
         category.setText(item.Category);
@@ -56,7 +74,7 @@ public class TaskView extends Activity {
         priority.setRating(item.Priority);
         credits.setText("" + (item.Credits));
         creator.setText(item.Creator);
-
+        status.setChecked((item.Status.contains("open"))?true:false);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
