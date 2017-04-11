@@ -103,9 +103,9 @@ public class shopping_List extends Activity {
                 final spinAdapter spin; spin = (spinAdapter)promptsView.findViewById(R.id.roommates);
                 List<String> list = new ArrayList<String>();
                 list.add("Vishal");
-                list.add("Mohit");
+                list.add("Chao Wang");
                 list.add("Prahathess");
-                list.add("Dhanesh");
+
                 spin.setItem(list);
 
                 // set dialog message

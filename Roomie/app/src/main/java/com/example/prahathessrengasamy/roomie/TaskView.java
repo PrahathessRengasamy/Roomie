@@ -30,13 +30,11 @@ import static android.R.attr.data;
 public class TaskView extends Activity {
     private TextView title,des,category,due_date,workforce,credits,creator;
     private RatingBar priority;
-<<<<<<< HEAD
+
     private Button back,del,edit;
     private DatabaseReference mDatabase;
-=======
-    private Button back,del;
-    DatabaseReference mDatabase;
->>>>>>> Gamification
+
+
     private Switch status;
     private Person[] persons;
     String uuid;
@@ -57,12 +55,11 @@ public class TaskView extends Activity {
         creator=(TextView) findViewById(R.id.creator);
         back=(Button) findViewById(R.id.back);
         status=(Switch)findViewById(R.id.status);
-<<<<<<< HEAD
+
         edit=(Button)findViewById(R.id.edit);
-        Tasks item= (Tasks) getIntent().getSerializableExtra("item");
-=======
+
         final Tasks item= (Tasks) getIntent().getSerializableExtra("item");
->>>>>>> Gamification
+
         uuid=item.tid;
 
         title.setText(item.title);
@@ -78,12 +75,12 @@ public class TaskView extends Activity {
         mDatabase = FirebaseDatabase.getInstance().getReferenceFromUrl("https://roomie-27bba.firebaseio.com/");
 
         final String[] array = item.Assignedto.split(",");
-        persons=new Person[array.length];
+        persons=new Person[array.length+1];
         if(array.length==1){
             mDatabase.child("users").child(array[0]).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot snapshot) {
-                    persons[i] = snapshot.getValue(Person.class);
+                    persons[0] = snapshot.getValue(Person.class);
 
                 }
 
@@ -117,10 +114,6 @@ public class TaskView extends Activity {
                 if (!status.isChecked()){
 
                     mDatabase.child("tasks").child(item.tid).child("Status").setValue("Closed");
-
-
-
-
 
                     for (int i = 0; i < array.length; i++) {
                         mDatabase.child("users").child(array[i]).child("score").setValue(""+(Float.parseFloat(persons[i].score)+item.Credits));

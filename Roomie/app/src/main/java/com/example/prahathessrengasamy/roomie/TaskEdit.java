@@ -169,9 +169,9 @@ public class TaskEdit extends Activity implements View.OnClickListener {
     private void addItemsonRoomies() {
         List<String> list = new ArrayList<String>();
         list.add("Vishal");
-        list.add("Mohit");
+        list.add("Chao Wang");
         list.add("Prahathess");
-        list.add("Dhanesh");
+
         roomies.setItem(list);
     }
 
