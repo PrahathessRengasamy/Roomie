@@ -87,9 +87,26 @@ public class TaskView extends Activity {
                 myintent.putExtra("cat", category.getText().toString());
                 myintent.putExtra("dd", due_date.getText().toString());
                 myintent.putExtra("workforce", workforce.getText().toString());
-                myintent.putExtra("priority", priority.getNumStars());
-                TaskView.this.startActivity(myintent);
+                myintent.putExtra("priority", ""+priority.getRating());
+                TaskView.this.startActivityForResult(myintent,1);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1) {
+            if(resultCode == Activity.RESULT_OK){
+                title.setText(data.getStringExtra("title"));
+                des.setText(data.getStringExtra("des"));
+                category.setText(data.getStringExtra("cat"));
+                due_date.setText(data.getStringExtra("dd"));
+                workforce.setText(data.getStringExtra("workforce"));
+                priority.setRating(Float.parseFloat(data.getStringExtra("priority")));
+            }
+            if (resultCode == Activity.RESULT_CANCELED) {
+                //Write your code if there's no result
+            }
+        }
     }
 }

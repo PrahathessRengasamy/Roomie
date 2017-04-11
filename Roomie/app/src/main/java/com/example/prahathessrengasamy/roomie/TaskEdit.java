@@ -119,7 +119,7 @@ public class TaskEdit extends Activity implements View.OnClickListener {
         String[] sel=bundle.getString("workforce").split(", ");
         roomies.setSelection(sel);
         priority.setNumStars(5);
-        priority.setRating(Float.parseFloat(String.valueOf(bundle.getFloat("priority"))));
+        priority.setRating(Float.parseFloat(bundle.getString("priority")));
         save.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.N)
             public void onClick(View v) {
@@ -129,8 +129,8 @@ public class TaskEdit extends Activity implements View.OnClickListener {
                 t.show();
                 mDatabase.child("tasks").child(uuid).setValue(p);
                 mDatabase.child("shopping/" + uuid).child("/items").setValue(items);
-                TaskEdit.super.onBackPressed();
-                mDatabase.child("shopping/" + uuid).child("/items").setValue(items);
+                //TaskEdit.super.onBackPressed();
+               // mDatabase.child("shopping/" + uuid).child("/items").setValue(items);
                 DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                 Date startDate=new Date();
                 try {
@@ -152,7 +152,17 @@ public class TaskEdit extends Activity implements View.OnClickListener {
                 AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
                 alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, futureInMillis, pendingIntent);
                 System.out.println("hello");
-                TaskEdit.super.onBackPressed();
+                //TaskEdit.super.onBackPressed();
+                Intent myintent =new Intent();
+                myintent.putExtra("title", title.getText().toString());
+                myintent.putExtra("des", des.getText().toString());
+                //myintent.putExtra("tid", uuid);
+                myintent.putExtra("cat", cat.getSelectedItem().toString());
+                myintent.putExtra("dd", dd.getText().toString());
+                myintent.putExtra("workforce", roomies.getSelectedItem().toString());
+                myintent.putExtra("priority", ""+priority.getRating());
+                setResult(Activity.RESULT_OK,myintent);
+                finish();
             }
         });
 
