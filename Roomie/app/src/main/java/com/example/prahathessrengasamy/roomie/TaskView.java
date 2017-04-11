@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RatingBar;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
@@ -24,6 +25,7 @@ public class TaskView extends Activity {
     private RatingBar priority;
     private Button back,del;
     private DatabaseReference mDatabase;
+    private Switch status;
     String uuid;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,7 +41,7 @@ public class TaskView extends Activity {
         credits=(TextView) findViewById(R.id.credits);
         creator=(TextView) findViewById(R.id.creator);
         back=(Button) findViewById(R.id.back);
-
+        status=(Switch)findViewById(R.id.status);
         Tasks item= (Tasks) getIntent().getSerializableExtra("item");
         uuid=item.tid;
         title.setText(item.title);
@@ -51,7 +53,7 @@ public class TaskView extends Activity {
         priority.setRating(item.Priority);
         credits.setText(""+(item.Credits));
         creator.setText(item.Creator);
-
+        status.setChecked((item.Status.contains("open"))?true:false);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
