@@ -55,7 +55,6 @@ public class TaskList extends Activity {
                 for (DataSnapshot child : snapshot.getChildren()) {
                     TaskList.this.items.add(child.getValue(Tasks.class));
 
-
                 }
             }
             @Override
