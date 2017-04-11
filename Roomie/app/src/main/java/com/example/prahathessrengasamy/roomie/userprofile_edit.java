@@ -59,7 +59,7 @@ public class userprofile_edit extends AppCompatActivity implements View.OnClickL
             liqpref=liq_pref.getText().toString();
             mpref=m_pref.getText().toString();
             mDatabase = FirebaseDatabase.getInstance().getReference();
-            Person person= new Person(name,age,fpref,lpref,spref,liqpref,mpref);
+            Person person= new Person(name,age,fpref,lpref,spref,liqpref,mpref,"5");
             Toast t= Toast.makeText(getApplicationContext(),"User updated",Toast.LENGTH_LONG);
             t.show();
             mDatabase.child("users").child(name).setValue(person);

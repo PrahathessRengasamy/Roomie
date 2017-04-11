@@ -12,8 +12,11 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.jar.Attributes;
@@ -27,10 +30,17 @@ import static android.R.attr.data;
 public class TaskView extends Activity {
     private TextView title,des,category,due_date,workforce,credits,creator;
     private RatingBar priority;
+<<<<<<< HEAD
     private Button back,del,edit;
     private DatabaseReference mDatabase;
+=======
+    private Button back,del;
+    DatabaseReference mDatabase;
+>>>>>>> Gamification
     private Switch status;
+    private Person[] persons;
     String uuid;
+    int i;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,8 +57,12 @@ public class TaskView extends Activity {
         creator=(TextView) findViewById(R.id.creator);
         back=(Button) findViewById(R.id.back);
         status=(Switch)findViewById(R.id.status);
+<<<<<<< HEAD
         edit=(Button)findViewById(R.id.edit);
         Tasks item= (Tasks) getIntent().getSerializableExtra("item");
+=======
+        final Tasks item= (Tasks) getIntent().getSerializableExtra("item");
+>>>>>>> Gamification
         uuid=item.tid;
 
         title.setText(item.title);
@@ -61,6 +75,64 @@ public class TaskView extends Activity {
         credits.setText("" + (item.Credits));
         creator.setText(item.Creator);
         status.setChecked((item.Status.contains("open"))?true:false);
+        mDatabase = FirebaseDatabase.getInstance().getReferenceFromUrl("https://roomie-27bba.firebaseio.com/");
+
+        final String[] array = item.Assignedto.split(",");
+        persons=new Person[array.length];
+        if(array.length==1){
+            mDatabase.child("users").child(array[0]).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot snapshot) {
+                    persons[i] = snapshot.getValue(Person.class);
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    System.out.print("@@@@@@");
+                }
+            });
+        }
+        else{
+            for ( i = 0; i < array.length; i++) {
+                mDatabase.child("users").child(array[0]).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot snapshot) {
+                        persons[i] = snapshot.getValue(Person.class);
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        System.out.print("@@@@@@");
+                    }
+                });
+            }
+        }
+
+        status.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (!status.isChecked()){
+
+                    mDatabase.child("tasks").child(item.tid).child("Status").setValue("Closed");
+
+
+
+
+
+                    for (int i = 0; i < array.length; i++) {
+                        mDatabase.child("users").child(array[i]).child("score").setValue(""+(Float.parseFloat(persons[i].score)+item.Credits));
+                    }
+                }
+                else {
+                    mDatabase = FirebaseDatabase.getInstance().getReferenceFromUrl("https://roomie-27bba.firebaseio.com/");
+                    mDatabase.child("tasks").child(item.tid).child("Status").setValue("open");
+                }
+
+            }
+        });
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
