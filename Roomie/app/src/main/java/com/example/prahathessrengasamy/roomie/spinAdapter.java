@@ -97,6 +97,8 @@ public class spinAdapter extends Spinner implements
                 }
             }
         }
+        simple_adapter.clear();
+        simple_adapter.add(buildSelectedItemString());
     }
 
     public void setSelection(List<String> selection) {
@@ -110,8 +112,6 @@ public class spinAdapter extends Spinner implements
                 }
             }
         }
-        simple_adapter.clear();
-        simple_adapter.add(buildSelectedItemString());
     }
 
     public void setSelection(int index) {

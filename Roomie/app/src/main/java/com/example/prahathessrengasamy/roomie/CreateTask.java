@@ -59,8 +59,8 @@ public class CreateTask extends Activity implements View.OnClickListener {
     private Button submit,list;
     private RatingBar priority;
 
-    private RatingBar effort;
-    private int count=0;
+    //private RatingBar effort;
+    //private int count=0;
 
     private DatabaseReference mDatabase;
     ArrayList<shoppinglist> items;
@@ -83,7 +83,7 @@ public class CreateTask extends Activity implements View.OnClickListener {
         addItemsonRoomies();
        // String uuid =UUID.randomUUID().toString().replaceAll("-", "").toUpperCase();
         genuuid();
-final Context c=this;
+        final Context c=this;
 
         cat.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -157,7 +157,7 @@ final Context c=this;
                 long futureInMillis = SystemClock.elapsedRealtime() + aa;
                 AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
                 alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, futureInMillis, pendingIntent);
-                System.out.println("helllo");
+                System.out.println("hello");
 
 
                 CreateTask.super.onBackPressed();

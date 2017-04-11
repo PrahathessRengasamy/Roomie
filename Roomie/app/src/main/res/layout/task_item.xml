@@ -143,20 +143,40 @@
 
     <Button
         android:id="@+id/back"
-        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="52dp"
+        android:layout_marginBottom="47dp"
+        android:background="@drawable/roundshapebtn"
+        android:backgroundTint="@color/colorAccent"
         android:text="Back to list"
+        android:textColor="@color/cardview_light_background"
         android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/priority" />
+        android:layout_toEndOf="@+id/del"
+        android:layout_marginStart="10dp" />
 
     <Button
         android:id="@+id/del"
-        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/back"
-        android:layout_toEndOf="@+id/textView18"
-        android:text="Delete" />
+        android:background="@drawable/roundshapebtn"
+        android:backgroundTint="@color/colorAccent"
+        android:text="Delete"
+        android:textColor="@color/cardview_light_background"
+        android:textColorLink="@color/colorAccent"
+        android:layout_alignBaseline="@+id/back"
+        android:layout_alignBottom="@+id/back"
+        android:layout_toEndOf="@+id/edit"
+        android:layout_marginStart="11dp" />
+
+    <Button
+        android:id="@+id/edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/roundshapebtn"
+        android:backgroundTint="@color/colorAccent"
+        android:text="Edit"
+        android:textColor="@color/cardview_light_background"
+        android:layout_alignBaseline="@+id/del"
+        android:layout_alignBottom="@+id/del"
+        android:layout_toStartOf="@+id/creator" />
 </RelativeLayout>

@@ -49,6 +49,9 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".TaskEdit"
+            android:label="Tasks" />
+        <activity
             android:name=".opening"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">

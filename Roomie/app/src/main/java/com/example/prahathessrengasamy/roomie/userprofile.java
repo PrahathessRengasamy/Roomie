@@ -60,7 +60,6 @@ public class userprofile extends AppCompatActivity {
                 myIntent.putExtra("liq_pref",liq_pref.getText().toString());
                 myIntent.putExtra("m_pref",m_pref.getText().toString());
                 userprofile.this.startActivityForResult(myIntent,2);
-
             }
         });
 
