@@ -17,7 +17,7 @@ import java.util.jar.Attributes;
  */
 
 public class TaskView extends Activity {
-    private TextView title,des,category,due_date,workforce,credits,creator;
+    private TextView title,des,category,due_date,workforce,credits,creator,status;
     private RatingBar priority;
     private Button back;
     @Override
@@ -32,6 +32,7 @@ public class TaskView extends Activity {
         priority=(RatingBar) findViewById(R.id.priority);
         credits=(TextView) findViewById(R.id.credits);
         creator=(TextView) findViewById(R.id.creator);
+        status=(TextView) findViewById(R.id.statusid);
         back=(Button) findViewById(R.id.back);
         Tasks item= (Tasks) getIntent().getSerializableExtra("item");
         title.setText(item.title);
@@ -42,6 +43,7 @@ public class TaskView extends Activity {
         priority.setNumStars(5);
         priority.setRating(item.Priority);
         credits.setText(""+(item.Credits));
+        status.setText(item.Status);
         creator.setText(item.Creator);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
