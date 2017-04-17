@@ -28,7 +28,7 @@ import static android.R.attr.data;
  */
 
 public class TaskView extends Activity {
-    private TextView title,des,category,due_date,workforce,credits,creator,status;
+    private TextView title,des,category,due_date,workforce,credits,creator,statusid;
     private RatingBar priority;
 
     private Button back,del,edit;
@@ -53,7 +53,7 @@ public class TaskView extends Activity {
         priority=(RatingBar) findViewById(R.id.priority);
         credits=(TextView) findViewById(R.id.credits);
         creator=(TextView) findViewById(R.id.creator);
-        status=(TextView) findViewById(R.id.statusid);
+        statusid=(TextView) findViewById(R.id.statusid);
         back=(Button) findViewById(R.id.back);
         status=(Switch)findViewById(R.id.status);
 
@@ -70,12 +70,12 @@ public class TaskView extends Activity {
         workforce.setText(item.Workforce);
         priority.setNumStars(5);
         priority.setRating(item.Priority);
-<<<<<<< HEAD
-        credits.setText("" + (item.Credits));
-=======
+
+        //credits.setText("" + (item.Credits));
+
         credits.setText(""+(item.Credits));
-        status.setText(item.Status);
->>>>>>> push
+        statusid.setText(item.Status);
+
         creator.setText(item.Creator);
         status.setChecked((item.Status.contains("open"))?true:false);
         mDatabase = FirebaseDatabase.getInstance().getReferenceFromUrl("https://roomie-27bba.firebaseio.com/");

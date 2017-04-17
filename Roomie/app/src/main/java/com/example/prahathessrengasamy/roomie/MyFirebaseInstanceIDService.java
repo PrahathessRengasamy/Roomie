@@ -47,11 +47,11 @@ public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
         mDatabase = FirebaseDatabase.getInstance().getReference();
         //udet u=new udet(token);
         //String user1="Mrunn";
-<<<<<<< HEAD
-        mDatabase.child("userdet").child("vish").setValue(token);
-=======
+
+     //   mDatabase.child("userdet").child("vish").setValue(token);
+
        // mDatabase.child("userdet").child("Mrun").setValue(token);
         mDatabase.child("userdet").child(token).setValue(0);
->>>>>>> push
+
     }
 }
