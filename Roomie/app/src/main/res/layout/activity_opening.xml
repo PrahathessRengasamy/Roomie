@@ -27,7 +27,10 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-<<<<<<< HEAD
+
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/activity_vertical_margin"
+        android:weightSum="1"
         android:layout_height="match_parent">
 
         <com.google.android.gms.ads.AdView
@@ -61,61 +64,8 @@
             android:weightSum="1"
             android:layout_alignParentBottom="true">
 
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/usersfab"
-                style="@style/Widget.Design.FloatingActionButton"
-                android:layout_width="52dp"
-                android:layout_height="53dp"
-                android:layout_gravity="bottom|right"
-                android:layout_margin="@dimen/fab_margin"
-                android:layout_weight="0.03"
-                app:srcCompat="@drawable/ic_people_white_24dp" />
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/setfab"
-                style="@style/Widget.Design.FloatingActionButton"
-                android:layout_width="52dp"
-                android:layout_height="54dp"
-                android:layout_gravity="bottom|right|fill_horizontal|end"
-                android:layout_margin="@dimen/fab_margin"
-                android:layout_weight="0.06"
-                app:layout_anchor="@+id/linearLayout"
-                app:layout_anchorGravity="bottom|center_horizontal"
-                app:srcCompat="@drawable/ic_settings_applications_white_24dp" />
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/homefab"
-                style="@style/Widget.Design.FloatingActionButton"
-                android:layout_width="52dp"
-                android:layout_height="62dp"
-                android:layout_gravity="bottom|right|fill_horizontal|end"
-                android:layout_margin="@dimen/fab_margin"
-                android:layout_weight="0.08"
-                app:layout_anchor="@+id/linearLayout"
-                app:layout_anchorGravity="bottom|center_horizontal"
-                app:srcCompat="@drawable/ic_home_black_24dp" />
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/taskfab"
-                style="@style/Widget.Design.FloatingActionButton"
-                android:layout_width="52dp"
-                android:layout_height="54dp"
-                android:layout_gravity="bottom|right|fill_horizontal|end"
-                android:layout_margin="@dimen/fab_margin"
-                android:layout_weight="0.05"
-                app:layout_anchor="@+id/linearLayout"
-                app:layout_anchorGravity="bottom|right"
-                app:srcCompat="@drawable/ic_format_list_bulleted_white_24dp" />
 
 
-        </LinearLayout>
-
-    </RelativeLayout>
-=======
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:paddingLeft="@dimen/activity_vertical_margin"
-        android:weightSum="1">
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/usersfab"
@@ -164,7 +114,7 @@
 
 
     </LinearLayout>
->>>>>>> push
+
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/rf1"
@@ -175,6 +125,6 @@
         app:fabSize="mini"
         app:srcCompat="@android:drawable/ic_menu_search"
         tools:paddingRight="100dp" />
-
+    </RelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>

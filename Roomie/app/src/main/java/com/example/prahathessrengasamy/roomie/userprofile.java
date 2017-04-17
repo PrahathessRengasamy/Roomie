@@ -9,14 +9,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-<<<<<<< HEAD
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 import java.util.ArrayList;
 
-=======
->>>>>>> push
+
 public class userprofile extends AppCompatActivity {
 
     private TextView Name, Age, f_pref,l_pref,s_pref,liq_pref,m_pref,score;
