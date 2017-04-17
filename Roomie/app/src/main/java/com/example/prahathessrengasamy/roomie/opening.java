@@ -25,6 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class opening extends AppCompatActivity implements View.OnClickListener {
+<<<<<<< HEAD
     private FloatingActionButton taskfab,homefab,setfab,usersfab;
     DatabaseReference mDatabase;
     ArrayList<Tasks> task;
@@ -32,6 +33,9 @@ public class opening extends AppCompatActivity implements View.OnClickListener {
     RecyclerView rv;
     private AdView mAdView;
     private Button btnFullscreenAd;
+=======
+    private FloatingActionButton taskfab,homefab,setfab,usersfab,rf1;
+>>>>>>> push
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +63,7 @@ public class opening extends AppCompatActivity implements View.OnClickListener {
         setfab.setOnClickListener(this);
         homefab= (FloatingActionButton) findViewById(R.id.homefab);
         homefab.setOnClickListener(this);
+<<<<<<< HEAD
 
 
     }
@@ -83,6 +88,10 @@ public class opening extends AppCompatActivity implements View.OnClickListener {
 
             }
         });
+=======
+        rf1= (FloatingActionButton) findViewById(R.id.rf1);
+        rf1.setOnClickListener(this);
+>>>>>>> push
     }
         private void initializeAdapter(){
             myTaskAdapter adapter = new myTaskAdapter(task);
@@ -107,6 +116,14 @@ public class opening extends AppCompatActivity implements View.OnClickListener {
         {
             //Do for settings activity
             Intent intent = new Intent(opening.this,Scan.class);
+            startActivity(intent);
+
+        }
+
+        else if(v.equals(rf1))
+        {
+            //Do for settings activity
+            Intent intent = new Intent(opening.this,rfprofileList.class);
             startActivity(intent);
 
         }

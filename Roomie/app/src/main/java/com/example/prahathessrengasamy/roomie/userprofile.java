@@ -3,18 +3,20 @@ package com.example.prahathessrengasamy.roomie;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+<<<<<<< HEAD
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 import java.util.ArrayList;
 
+=======
+>>>>>>> push
 public class userprofile extends AppCompatActivity {
 
     private TextView Name, Age, f_pref,l_pref,s_pref,liq_pref,m_pref,score;
@@ -30,7 +32,7 @@ public class userprofile extends AppCompatActivity {
         Name = (TextView) findViewById(R.id.n_value);
         Age = (TextView) findViewById(R.id.a_value);
         f_pref = (TextView) findViewById(R.id.f_value);
-        l_pref = (TextView) findViewById(R.id.l_value);
+        l_pref = (TextView) findViewById(R.id.m_value);
         s_pref = (TextView) findViewById(R.id.s_value);
         liq_pref = (TextView) findViewById(R.id.liq_value);
         m_pref = (TextView) findViewById(R.id.m_value);
