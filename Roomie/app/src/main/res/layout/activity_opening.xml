@@ -44,7 +44,6 @@
             android:layout_height="53dp"
             android:layout_gravity="bottom|right"
             android:layout_margin="@dimen/fab_margin"
-            android:layout_weight="0.03"
             app:srcCompat="@drawable/ic_people_white_24dp" />
 
         <android.support.design.widget.FloatingActionButton
@@ -85,6 +84,16 @@
 
 
     </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/rf1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|right"
+        android:clickable="true"
+        app:fabSize="mini"
+        app:srcCompat="@android:drawable/ic_menu_search"
+        tools:paddingRight="100dp" />
 
 
 </android.support.design.widget.CoordinatorLayout>

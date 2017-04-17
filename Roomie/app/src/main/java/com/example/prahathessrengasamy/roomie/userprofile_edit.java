@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
@@ -30,7 +29,7 @@ public class userprofile_edit extends AppCompatActivity implements View.OnClickL
         Name = (EditText) findViewById(R.id.n_value);
         Age = (EditText) findViewById(R.id.a_value);
         f_pref = (EditText) findViewById(R.id.f_value);
-        l_pref = (EditText) findViewById(R.id.l_value);
+        l_pref = (EditText) findViewById(R.id.m_value);
         s_pref = (EditText) findViewById(R.id.s_value);
         liq_pref = (EditText) findViewById(R.id.liq_value);
         m_pref = (EditText) findViewById(R.id.m_value);

@@ -63,6 +63,16 @@
         <activity
             android:name=".profileList"
             android:label="userprofile" />
+
+
+        <activity
+            android:name=".rfprofileList"
+            android:label="userprofile" />
+        <activity
+            android:name=".rfuserprofile"
+            android:label="@string/title_activity_userprofile"
+            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".TaskView"
             android:label="Tasks" />

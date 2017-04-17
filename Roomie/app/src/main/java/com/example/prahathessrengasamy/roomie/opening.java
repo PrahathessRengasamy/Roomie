@@ -10,7 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 public class opening extends AppCompatActivity implements View.OnClickListener {
-    private FloatingActionButton taskfab,homefab,setfab,usersfab;
+    private FloatingActionButton taskfab,homefab,setfab,usersfab,rf1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +26,8 @@ public class opening extends AppCompatActivity implements View.OnClickListener {
         setfab.setOnClickListener(this);
         homefab= (FloatingActionButton) findViewById(R.id.homefab);
         homefab.setOnClickListener(this);
+        rf1= (FloatingActionButton) findViewById(R.id.rf1);
+        rf1.setOnClickListener(this);
     }
 
     @Override
@@ -44,6 +46,14 @@ public class opening extends AppCompatActivity implements View.OnClickListener {
         {
             //Do for settings activity
             Intent intent = new Intent(opening.this,Scan.class);
+            startActivity(intent);
+
+        }
+
+        else if(v.equals(rf1))
+        {
+            //Do for settings activity
+            Intent intent = new Intent(opening.this,rfprofileList.class);
             startActivity(intent);
 
         }
